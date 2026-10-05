@@ -16,5 +16,5 @@ Modern DevSecOps relies on automating compliance checks earlier in the software 
 * **CI/CD Automation:** GitHub Actions (YAML)
 * **Version Control:** Git / GitHub
 
-## Current & Final Result
+## Final Result
 A fully functioning GitHub repository that runs automated status checks on incoming Pull Requests, rejecting non-compliant cloud configurations with detailed violation reports.
