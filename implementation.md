@@ -6,7 +6,7 @@
 * **Current Stage:** 
 * **Next Steps:** 
 
---
+---
 
 ## Technical Configuration & Setup
 
