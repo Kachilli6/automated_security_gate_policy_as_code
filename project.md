@@ -41,8 +41,88 @@ This project addresses real-world cloud security misconfigurations by embedding 
 ## 7. Work Plan
 
 | Week | Tasks | Expected Result |
-| **Week 1** | Local IaC setup & Checkov scanning | Terraform files (`main.tf`) created; Checkov CLI successfully catching intentional vulnerabilities locally. |
+| --- | --- | --- |
+| **Week 1** | **Workspace & IaC Foundations**<br>
 
-| **Week 2** | OPA integration & Rego custom policies | Execution plan JSON exported; custom `s3_policy.rego` denying non-compliant resources. |
+<br>• Initialize directory structure (`configs/`, `scripts/`, `policy/`).<br>
 
-| **Week 3** | GitHub Actions workflow & pipeline gating | Automated YAML pipeline running on PRs; branch protection blocking non-compliant code. |
+<br>• Install Terraform CLI and Python/pip locally.<br>
+
+<br>• Author initial `main.tf` with baseline compliant and non-compliant AWS S3 bucket declarations. | Working local workspace with a functional `main.tf` ready for static analysis. |
+| **Week 2** | **Off-the-Shelf Static Scanning**<br>
+
+<br>• Install Checkov CLI.<br>
+
+<br>• Execute local static scans against `main.tf`.<br>
+
+<br>• Document identified misconfigurations and standard CIS benchmark rules in `implementation.md`. | CLI scan logs detailing detected security vulnerabilities and pass/fail states. |
+| **Week 3** | **IaC Plan Generation & AST Parsing**<br>
+
+<br>• Initialize Terraform working directory (`terraform init`).<br>
+
+<br>• Generate binary execution plans (`terraform plan -out`).<br>
+
+<br>• Convert plans to JSON format (`terraform show -json`). | A structured `tfplan.json` file representing the infrastructure state. |
+| **Week 4** | **Rego Language & OPA Basics**<br>
+
+<br>• Install Open Policy Agent (OPA) CLI locally.<br>
+
+<br>• Complete core Styra Academy / Rego tutorials.<br>
+
+<br>• Inspect `tfplan.json` data structure using `opa eval` queries. | Working local OPA environment and baseline Rego query comprehension. |
+| **Week 5** | **Custom Policy Authoring (Part 1)**<br>
+
+<br>• Draft `s3_policy.rego` to target public ACLs (`public-read`).<br>
+
+<br>• Implement `deny` rules parsing resource change arrays.<br>
+
+<br>• Test evaluation against `tfplan.json`. | Local Rego policy file successfully blocking public S3 bucket ACL configurations. |
+| **Week 6** | **Custom Policy Authoring (Part 2)**<br>
+
+<br>• Add mandatory tag compliance rules (e.g., required `Environment` tag).<br>
+
+<br>• Refactor Rego logic to produce explicit error messages per violation.<br>
+
+<br>• Document policy logic in `implementation.md`. | Robust `s3_policy.rego` enforcing both security ACLs and organizational metadata tags. |
+| **Week 7** | **GitHub Actions Pipeline Setup**<br>
+
+<br>• Create public GitHub repository and push project files.<br>
+
+<br>• Draft `.github/workflows/devsecops-gate.yml`.<br>
+
+<br>• Configure workflow triggers on `pull_request` events to `main`. | Automated GitHub Actions workflow triggering on incoming code changes. |
+| **Week 8** | **Pipeline Tool Integration**<br>
+
+<br>• Add Checkov Action step to pipeline.<br>
+
+<br>• Add OPA setup and `opa eval` evaluation step to pipeline.<br>
+
+<br>• Configure exit code assertions (`exit 1` on policy failure). | Complete CI/CD security gate executing full scans on every pull request. |
+| **Week 9** | **Branch Protection & Gate Enforcement**<br>
+
+<br>• Configure GitHub Branch Protection rules for `main`.<br>
+
+<br>• Require status checks from the DevSecOps gate to pass before merging.<br>
+
+<br>• Conduct positive test (compliant code merge). | Verified pipeline allowing compliant pull requests to merge cleanly. |
+| **Week 10** | **Negative Testing & Edge Case Validation**<br>
+
+<br>• Submit intentionally flawed PRs (public ACLs, missing tags).<br>
+
+<br>• Verify that GitHub Actions blocks non-compliant merges.<br>
+
+<br>• Log findings and edge-case behaviors in `troubleshooting.md`. | Confirmed security gate blocking non-compliant code with clear feedback. |
+| **Week 11** | **Repository Documentation & Polish**<br>
+
+<br>• Finalize all 4 Markdown files (`README.md`, `project.md`, `implementation.md`, `troubleshooting.md`).<br>
+
+<br>• Add execution logs and pipeline run screenshots to `screenshots/`.<br>
+
+<br>• Clean up workspace files and `configs/`. | Complete, reproducible open-source portfolio repository. |
+| **Week 12** | **Academic Framing & Thesis Outline**<br>
+
+<br>• Analyze pipeline execution latencies and developer friction metrics.<br>
+
+<br>• Finalizing the project. | A completed functional DevSecOps project. |
+
+---
