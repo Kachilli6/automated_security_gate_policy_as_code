@@ -37,8 +37,15 @@ This project addresses real-world cloud security misconfigurations by embedding 
 * **Methods:**
   * Iterative local testing using `terraform plan` and `opa eval`.
   * Live CI/CD evaluation using triggered GitHub Action runs on test branches.
+ 
+## 7. Core Stack Inventory
+* **Infrastructure as Code (IaC):** Terraform (HCL2 language syntax).
+* **Off-the-Shelf Static Security Analysis:** Checkov (Static analysis scanner for infrastructure misconfigurations).
+* **Custom Policy-as-Code Engine:** Open Policy Agent (OPA) with the Rego policy query language.
+* **Automation & CI/CD Pipeline:** GitHub Actions (YAML workflow pipelines).
+* **Version Control:** Git & GitHub.
 
-## 7.
+## 8.
 
 ### System Resource Budget
 
