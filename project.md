@@ -42,5 +42,7 @@ This project addresses real-world cloud security misconfigurations by embedding 
 
 | Week | Tasks | Expected Result |
 | **Week 1** | Local IaC setup & Checkov scanning | Terraform files (`main.tf`) created; Checkov CLI successfully catching intentional vulnerabilities locally. |
+
 | **Week 2** | OPA integration & Rego custom policies | Execution plan JSON exported; custom `s3_policy.rego` denying non-compliant resources. |
+
 | **Week 3** | GitHub Actions workflow & pipeline gating | Automated YAML pipeline running on PRs; branch protection blocking non-compliant code. |
