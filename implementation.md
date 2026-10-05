@@ -12,5 +12,5 @@
 
 ### 1. Local Workspace Initialization
 ```bash
-mkdir -p automated-security-gate-policy-as-code/{configs,scripts,policy,.github/workflows}
-cd automated-security-gate-policy-as-code
+mkdir -p automated_security_gate_policy_as_code/{configs,scripts,policy,.github/workflows}
+cd automated_security_gate_policy_as_code
