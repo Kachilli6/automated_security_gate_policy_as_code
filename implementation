@@ -1,0 +1,16 @@
+# Practical & Technical Documentation
+
+## Current Progress
+* **Status:** Initialized Phase 1
+* **Completed Tasks:** Local directory initialization, tool verification.
+* **Current Stage:** Local Terraform HCL syntax design.
+* **Next Steps:** Write secure/insecure `main.tf` and run first Checkov scans.
+
+---
+
+## Technical Configuration & Setup
+
+### 1. Local Workspace Initialization
+```bash
+mkdir -p automated-security-gate-policy-as-code/{configs,scripts,policy,.github/workflows}
+cd automated-security-gate-policy-as-code
