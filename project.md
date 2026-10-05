@@ -38,7 +38,18 @@ This project addresses real-world cloud security misconfigurations by embedding 
   * Iterative local testing using `terraform plan` and `opa eval`.
   * Live CI/CD evaluation using triggered GitHub Action runs on test branches.
 
-## 7. Work Plan
+## 7.
+
+### System Resource Budget
+
+| **Component** | **Minimum Requirement** | **Estimated Usage** | **Notes** |
+|---|---|---|---|
+| **Disk Space** | ~2.5 GB total | ~1.5 GB binaries & caches | Terraform (~150MB), OPA (~50MB), Checkov Python environment (~500MB), local `.git` cache and logs (~800MB). |
+| **RAM** | 4 GB | ~500 MB active | Only consumed when running local static evaluations or CLI dry runs. |
+| **CPU** | Any x86_64 / ARM64 dual-core | Minimal | Local runs take 2–5 seconds per evaluation. |
+| **OS Support** | Linux / macOS / WSL2 | N/A | Fully native on Linux distributions (Ubuntu, RHEL, Debian). |
+
+## 8. Work Plan
 
 | Week | Tasks | Expected Result |
 | :---: | :--- | :--- |
