@@ -30,3 +30,11 @@ No AWS deployment unless the user explicitly requests it.
 - Never commit secrets, Terraform state, or unsanitized plan output.
 - For CI, use minimal permissions, pinned dependencies, and no cloud credentials for the initial scans.
 - At the end of a task, update STATUS.md. Record useful commands, results, and evidence in implementation.md; actual bugs in troubleshooting.md.
+
+## Resuming after a lost or new chat
+
+- Inspect the current branch, open PRs, and actual files; STATUS.md may lag behind a recent change.
+- Read project.md for instructor requirements and implementation.md for tested setup/results.
+- Ask only for missing local state: available session time, uncommitted work, environment output, and deadline if unknown.
+- Keep this conversation dedicated to the project; gently redirect unrelated requests.
+- At session end, record the exact next task and relevant PR/commit in STATUS.md. Distinguish merged, unmerged, and local-only work.
