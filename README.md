@@ -1,56 +1,45 @@
 # DevSecOps Automated Security Gate & Policy-as-Code Lab
 
-A 12-week university and portfolio project to evaluate AWS S3 Terraform configurations before merge using Checkov, Open Policy Agent (OPA), and GitHub Actions.
+A university and portfolio project about checking infrastructure changes before they are merged.
 
-**Status: planning and repository organization.** Terraform configurations, Rego policies, CI execution, and merge enforcement are not implemented yet. This repository does not currently block insecure changes.
+**Current status: planning only.** No Terraform configuration, executable security workflow, or Rego policy exists yet. No security tests have been verified.
 
-## Start here
+## Our next milestone
 
-1. Read the [project plan](docs/project.md), which covers all ten instructor requirements.
-2. Follow the [first milestone checklist](docs/catch-up.md).
-3. Record actual setup in the [implementation log](docs/implementation.md).
-4. Track results in the [test matrix](docs/test-results.md) and [weekly log](docs/weekly-log.md).
-5. Use [GitHub Issues](https://github.com/Kachilli6/automated_security_gate_policy_as_code/issues) for the implementation backlog.
+Over four weeks at 5–6 hours per week, aim to:
+1. Describe a small AWS S3 example in Terraform.
+2. Use Checkov locally to demonstrate a violation and its correction.
+3. Run the same selected checks automatically on GitHub pull requests.
+4. Configure and demonstrate required-check enforcement if available.
+5. Document the results and explain the demonstration.
 
-## Goal and scope
+OPA/Rego is optional for this milestone. Real Terraform plan evaluation is later work. No AWS deployment is needed for the initial configuration scans.
 
-Build a reproducible gate that rejects documented S3 policy violations and lets compliant changes proceed to review. Start with one provider, root-module Terraform examples, and four proposed controls: public access blocking, explicit SSE-KMS, versioning, and ownership/environment tags.
+## Where to look
 
-No automatic cloud deployment is planned. Passing the selected rules does not imply complete security or CIS certification.
-
-## Target architecture
-
-```mermaid
-flowchart TD
-    PR["Pull request"] --> S["Checkov scan"]
-    PR --> V["Terraform validation and plan"]
-    PR --> T["Policy unit tests"]
-    V --> O["Plan JSON and OPA"]
-    S --> G["Final security gate"]
-    O --> G
-    T --> G
-    G --> R["Required check on main"]
-```
-
-Terraform produces the saved plan and exports JSON; OPA evaluates it. The final gate must reject failed or skipped prerequisites. GitHub branch protection or a ruleset must require the check before it can enforce merging.
-
-## Repository guide
-
-| Path | Purpose |
+| File | Purpose |
 | --- | --- |
-| [configs/](configs/) | Normal Terraform scan target; implementation pending |
-| [examples/insecure/](examples/insecure/) | Isolated expected-failure examples |
-| [policy/](policy/) | Rego policies and unit tests |
-| [tests/fixtures/](tests/fixtures/) | Labelled synthetic policy inputs |
-| [scripts/](scripts/) | Local wrappers and example test harness |
-| [docs/](docs/) | Research, schedule, progress, evidence, and troubleshooting |
-| [.github/](.github/) | Contribution templates, ownership, and future CI |
-| [docs/archive/original-project.md](docs/archive/original-project.md) | Preserved initial proposal; superseded |
+| [project.md](project.md) | Instructor requirements, research, scope, and schedule |
+| [implementation.md](implementation.md) | Setup, commands, test results, and session notes |
+| [troubleshooting.md](troubleshooting.md) | Actual errors, attempted fixes, and verification |
+| [STATUS.md](STATUS.md) | Short handoff: what works and what comes next |
+| [AGENTS.md](AGENTS.md) | Instructions for Codex and other coding assistants |
+| [.gitignore](.gitignore) | Keeps local/generated files and credentials out of commits |
 
-Folder guides are scaffolding, not runnable implementations.
+Start each session with STATUS.md. Work on one small branch, review the changes, test them, and open a pull request.
 
-## Working on the project
+## Code folders will appear when needed
 
-Create a feature branch, make a small change, record reproducible evidence, and open a pull request using the template. Consult [CONTRIBUTING.md](CONTRIBUTING.md). Tool installation and pinned versions will be documented when verified.
+- `configs/`: normal Terraform scan target.
+- `examples/insecure/`: isolated examples with deliberate violations.
+- `.github/workflows/`: the actual GitHub Actions workflow.
+- `policy/`: optional Rego rules and their tests.
+- `docs/evidence/`: actual sanitized logs or screenshots, when collected.
 
-**Next milestone:** one valid Terraform example, one Checkov pass/fail pair, and one Rego rule with positive and negative tests. See the [control catalogue](docs/policy-catalog.md) and [security assumptions](docs/security-model.md).
+These are planned paths, not existing implementations. Empty folders and placeholder guides are unnecessary.
+
+## Demonstration boundary
+
+A failed CI job is an automated check. It becomes an enforced merge gate only after required-check settings and a blocked-merge experiment are verified. Passing selected checks does not prove complete security.
+
+Earlier detailed plans remain available in Git history. Existing issues describe the broader backlog; the current milestone in project.md and STATUS.md takes priority.
