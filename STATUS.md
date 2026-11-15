@@ -1,38 +1,67 @@
 # Current project status
 
-## Goal and time budget
+## Project and agreed milestone
 
-Next presentation milestone: Terraform + Checkov + GitHub Actions.
-Budget: 5–6 hours/week for approximately four weeks. Presentation date not confirmed.
-OPA/Rego is optional; real Terraform plan evaluation is deferred.
+DevSecOps Automated Security Gate & Policy-as-Code Lab, a university/portfolio project.
+Repository: https://github.com/Kachilli6/automated_security_gate_policy_as_code
+Broader academic design: 12 weeks. Immediate target: a small presentation within approximately one month.
+Available study time: 5–6 hours/week (20–24 hours total). Exact presentation date is not confirmed.
 
-## Verified repository state
+Core: one small S3 Terraform example, selected Checkov checks, local fail → fix → pass evidence, and GitHub Actions PR checks.
+Verify required-check settings and blocked merging before claiming an enforced gate.
+OPA/Rego is optional; real Terraform plan evaluation and cloud deployment are outside the immediate milestone.
+S3 is the example infrastructure being checked, not a service hosted on the VM.
 
-- The original organization PR #1 was merged.
-- Reviewed main at commit `dab60a2c506e54f9e03f128e1a7b5eeb71d66993`: 27 documentation/scaffolding files, no executable Terraform, Rego, or workflow.
-- This cleanup consolidates documentation into seven files.
+## Student and learning approach
+
+The student is learning Linux and Git. They plan to finish Git/GitHub basics and study basic JSON, YAML, and IaC before starting; completion has not been verified.
+Teach through explanation → small change → student runs it → inspect result → document.
+The student wants minimal files and understandable code, not a complete implementation generated in one session.
+Keep project conversations focused; redirect unrelated questions to another chat.
+
+## Verified state and evidence
+
+- PR #1 organized the original documentation and was merged.
+- PR #8 simplified the repository and was merged.
+- Main inspected at commit `7b0732beaacb782cf0a792408dca43f7b2a13897`: seven documentation/configuration files, no executable Terraform, Rego, or workflow.
 - No local security scans, policy tests, or automated gate results are verified.
-- Current branch protection has not been rechecked; enforcement remains unverified.
+- Branch protection has not been rechecked; enforcement is unverified.
+- Issues #2–#7 describe the older broader backlog. The current milestone takes priority.
 
-## Environment
+## Environment and unknowns
 
-Student plans to use an Ubuntu VM with VirtualBox on Windows.
-Current VM availability and Git/Terraform/Checkov versions need verification.
-Assistant execution environment is separate from that VM.
+Student environment: Ubuntu VM in VirtualBox on Windows, based on reported setup.
+Confirm the VM is usable and check current OS, Git, Python, Terraform, and Checkov versions.
+Editor, local clone path, active branch, uncommitted changes, and GitHub authentication method are not yet verified.
+The assistant environment is separate: assistant tool execution does not install anything on the student's VM.
+No runtime blocker has been reproduced. Do not request passwords, tokens, or private keys in chat.
 
-## Current task / next session
+## Next session: a 60–90 minute start
 
-Prepare the local development environment and first Checkov scan:
-1. Review and merge the cleanup PR, then clone or update the student checkout.
-2. Verify Git and practice branch → edit → commit → push.
-3. Verify/install Terraform and Checkov; record actual versions.
-4. Write one small S3 Terraform configuration together.
-5. Run the first scan and record its findings.
+Goal: a usable local checkout and a clear environment record; first scan is the next milestone.
+1. Read AGENTS.md, this file, and README.md; inspect main and open PRs for newer changes.
+2. Ask the student for their available session time and presentation date if still unknown.
+3. Check the student's OS and installed tools with read-only version commands.
+4. If no checkout exists, clone the repository. If one exists, inspect git status and the active branch before updating; preserve uncommitted work.
+5. Practice a small branch/edit/commit/push change by recording verified environment details in implementation.md.
+6. Review the diff and open a PR. Update this handoff.
 
-Stop at a small verified result; do not attempt every step in one session.
+Next session after that: install missing tools using current official instructions, write one small Terraform example together, and run Checkov. Record findings rather than expecting an immediately clean scan.
 
-## Blockers and evidence
+## How to resume in a new chat
 
-No runtime blocker has been reproduced yet. Tool setup is unverified.
-No scan evidence exists yet. Add real commands and run links to implementation.md.
-Existing issues #2–#7 are historical broader-scope backlog, not six extra tasks for this month.
+Share the repository URL and ask the assistant to read AGENTS.md, STATUS.md, README.md, and relevant implementation/project notes. Ask it to inspect open PRs before choosing the next step.
+If this handoff update is still on a PR branch, provide that PR link too.
+Repository files cannot reveal uncommitted VM changes or commands never recorded. Supply those separately.
+If the new chat cannot access GitHub, paste AGENTS.md and STATUS.md plus the relevant files/output.
+
+## End-of-session handoff
+
+Update this file, keeping it short:
+- Completed task and commit/PR link; whether merged.
+- Commands/tests actually run, where run, and outcomes (details in implementation.md).
+- Current branch and local work not pushed, if known.
+- Open blocker and the next single task.
+- Any changed scope, time budget, or deadline.
+
+Keep actual test evidence in implementation.md and reproduced bugs in troubleshooting.md. Do not mark planned work as complete.
