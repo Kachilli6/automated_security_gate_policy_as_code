@@ -40,8 +40,7 @@ No runtime blocker has been reproduced. Do not request passwords, tokens, or pri
 
 Goal: a usable local checkout and a clear environment record; first scan is the next milestone.
 1. Read AGENTS.md, this file, and README.md; inspect main and open PRs for newer changes.
-2. Ask the student for their available session time and presentation date if still unknown.
-3. Check the student's OS and installed tools with read-only version commands.
+2. Check the student's OS and installed tools with read-only version commands.
 4. If no checkout exists, clone the repository. If one exists, inspect git status and the active branch before updating; preserve uncommitted work.
 5. Practice a small branch/edit/commit/push change by recording verified environment details in implementation.md.
 6. Review the diff and open a PR. Update this handoff.
