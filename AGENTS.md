@@ -1,40 +1,31 @@
-# Working instructions
+# Working on this project
 
-This repository belongs to the wider learning project "Becoming who I want to be".
-The student is learning Linux, Git, and DevSecOps and has 5–6 hours per week.
+Beginner university DevSecOps lab. Work in small steps and explain important changes and commands. The student has about 5–6 hours per week and runs learning steps on an Ubuntu VM.
 
-## Read first
+## Read as needed
 
-Read README.md and STATUS.md, then the relevant code and documentation.
-Use project.md for scope; implementation.md for verified commands and results.
-Do not rely on chat memory or old issues as the authoritative current plan.
+- README.md: overview and file map.
+- STATUS.md: current milestone, verified progress, blockers, and next step.
+- project.md: instructor requirements, research, and design rationale.
+- implementation.md: actual setup commands, versions, tests, and evidence.
+- troubleshooting.md: reproduced problems and fixes.
+- For behavior, inspect the actual Terraform, Checkov configuration, workflow, policies, and tests. Some files are only planned; check the tree first.
 
-## Current scope
+Inspect the current branch and open PRs when resuming. Repository files cannot reveal uncommitted changes on the student's VM.
 
-Terraform + selected Checkov checks + GitHub Actions is the next presentation milestone.
-OPA/Rego is optional. Real Terraform plans and broader policy coverage are later work.
-No AWS deployment unless the user explicitly requests it.
+## Working rules
 
-## Working style
-
-- Work on one small, understandable task at a time.
-- Explain important changes and commands in plain language.
-- Let the student run learning steps on their Ubuntu VM.
+- Follow the current milestone in STATUS.md; preserve unrelated work.
+- Use a branch and a reviewable pull request for repository edits.
 - Distinguish assistant-environment tests from student-VM tests.
-- Keep documentation short; reuse existing files instead of adding templates or placeholder folders.
-- Inspect current files before editing. Preserve unrelated user changes.
-- Use a branch and a reviewable pull request for repository changes.
-- Never claim installation, test success, or merge enforcement without evidence.
-- Keep deliberate violations separate from the normal scan target.
-- A negative test must detect the intended violation, not merely return any error.
-- Never commit secrets, Terraform state, or unsanitized plan output.
-- For CI, use minimal permissions, pinned dependencies, and no cloud credentials for the initial scans.
-- At the end of a task, update STATUS.md. Record useful commands, results, and evidence in implementation.md; actual bugs in troubleshooting.md.
+- Do not deploy AWS resources unless explicitly requested.
+- Never commit secrets, Terraform state, or unsanitized plans.
+- Never call untested work verified or claim merge enforcement without evidence.
+- Scan deliberate violations separately from normal configurations; check the intended finding rather than any failure.
+- In CI use minimal permissions, pinned dependencies, and no cloud credentials for initial scans.
+- Keep documentation and this file brief. Add code or folders only when needed.
+- Keep project conversations focused and redirect unrelated questions to another chat.
 
-## Resuming after a lost or new chat
+## Finish a task
 
-- Inspect the current branch, open PRs, and actual files; STATUS.md may lag behind a recent change.
-- Read project.md for instructor requirements and implementation.md for tested setup/results.
-- Ask only for missing local state: available session time, uncommitted work, environment output, and deadline if unknown.
-- Keep this conversation dedicated to the project; gently redirect unrelated requests.
-- At session end, record the exact next task and relevant PR/commit in STATUS.md. Distinguish merged, unmerged, and local-only work.
+Update STATUS.md with the result, PR/commit state, blocker, and next small task. Record commands and evidence in implementation.md; record actual bugs and fixes in troubleshooting.md.
