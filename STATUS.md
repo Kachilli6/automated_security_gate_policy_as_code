@@ -12,12 +12,6 @@ Verify required-check settings and blocked merging before claiming an enforced g
 OPA/Rego is optional; real Terraform plan evaluation and cloud deployment are outside the immediate milestone.
 S3 is the example infrastructure being checked, not a service hosted on the VM.
 
-## Student and learning approach
-
-The student is learning Linux and Git. They plan to finish Git/GitHub basics and study basic JSON, YAML, and IaC before starting; completion has not been verified.
-Teach through explanation → small change → student runs it → inspect result → document.
-The student wants minimal files and understandable code, not a complete implementation generated in one session.
-Keep project conversations focused; redirect unrelated questions to another chat.
 
 ## Verified state and evidence
 
@@ -36,7 +30,7 @@ Editor, local clone path, active branch, uncommitted changes, and GitHub authent
 The assistant environment is separate: assistant tool execution does not install anything on the student's VM.
 No runtime blocker has been reproduced. Do not request passwords, tokens, or private keys in chat.
 
-## Next session: a 60–90 minute start
+## Next session: a start
 
 Goal: a usable local checkout and a clear environment record; first scan is the next milestone.
 1. Read AGENTS.md, this file, and README.md; inspect main and open PRs for newer changes.
